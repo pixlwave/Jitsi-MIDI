@@ -13,7 +13,6 @@
 		A56C471A269A088B00F2A65D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A56C4719269A088B00F2A65D /* Preview Assets.xcassets */; };
 		A56C4723269A08B000F2A65D /* JitsiApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A56C4722269A08B000F2A65D /* JitsiApp.swift */; };
 		A56C4725269A111B00F2A65D /* KeybowListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = A56C4724269A111B00F2A65D /* KeybowListener.swift */; };
-		A56C4727269A21AE00F2A65D /* KeybowHIDListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = A56C4726269A21AE00F2A65D /* KeybowHIDListener.swift */; };
 		A56C472A269A21E900F2A65D /* ORSSerial in Frameworks */ = {isa = PBXBuildFile; productRef = A56C4729269A21E900F2A65D /* ORSSerial */; };
 /* End PBXBuildFile section */
 
@@ -26,7 +25,6 @@
 		A56C471B269A088B00F2A65D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A56C4722269A08B000F2A65D /* JitsiApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JitsiApp.swift; sourceTree = "<group>"; };
 		A56C4724269A111B00F2A65D /* KeybowListener.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeybowListener.swift; sourceTree = "<group>"; };
-		A56C4726269A21AE00F2A65D /* KeybowHIDListener.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeybowHIDListener.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,7 +64,6 @@
 				A56C4714269A088A00F2A65D /* ContentView.swift */,
 				A56C4722269A08B000F2A65D /* JitsiApp.swift */,
 				A56C4724269A111B00F2A65D /* KeybowListener.swift */,
-				A56C4726269A21AE00F2A65D /* KeybowHIDListener.swift */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -165,7 +162,6 @@
 			files = (
 				A56C4715269A088A00F2A65D /* ContentView.swift in Sources */,
 				A56C4713269A088A00F2A65D /* KeybowJitsiApp.swift in Sources */,
-				A56C4727269A21AE00F2A65D /* KeybowHIDListener.swift in Sources */,
 				A56C4725269A111B00F2A65D /* KeybowListener.swift in Sources */,
 				A56C4723269A08B000F2A65D /* JitsiApp.swift in Sources */,
 			);

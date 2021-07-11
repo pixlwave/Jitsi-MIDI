@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		A56C4713269A088A00F2A65D /* KeybowJitsiApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A56C4712269A088A00F2A65D /* KeybowJitsiApp.swift */; };
+		A56C4713269A088A00F2A65D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A56C4712269A088A00F2A65D /* AppDelegate.swift */; };
 		A56C4715269A088A00F2A65D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A56C4714269A088A00F2A65D /* ContentView.swift */; };
 		A56C4717269A088B00F2A65D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A56C4716269A088B00F2A65D /* Assets.xcassets */; };
 		A56C471A269A088B00F2A65D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A56C4719269A088B00F2A65D /* Preview Assets.xcassets */; };
@@ -17,6 +17,7 @@
 		A57ACBEA269B0F4D00EF3B02 /* VVBasics.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A57ACBE5269B0E7800EF3B02 /* VVBasics.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A57ACBEB269B0F4F00EF3B02 /* VVMIDI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A57ACBE6269B0E7900EF3B02 /* VVMIDI.framework */; };
 		A57ACBEC269B0F4F00EF3B02 /* VVMIDI.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A57ACBE6269B0E7900EF3B02 /* VVMIDI.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A57ACC2C269B1A5100EF3B02 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A57ACC2B269B1A5100EF3B02 /* Main.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -35,8 +36,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		A56C470F269A088A00F2A65D /* JitsiKeybow.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JitsiKeybow.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		A56C4712269A088A00F2A65D /* KeybowJitsiApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeybowJitsiApp.swift; sourceTree = "<group>"; };
+		A56C470F269A088A00F2A65D /* Jitsi MIDI Keys.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Jitsi MIDI Keys.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A56C4712269A088A00F2A65D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A56C4714269A088A00F2A65D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		A56C4716269A088B00F2A65D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A56C4719269A088B00F2A65D /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -45,6 +46,7 @@
 		A56C4724269A111B00F2A65D /* MidiListener.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MidiListener.swift; sourceTree = "<group>"; };
 		A57ACBE5269B0E7800EF3B02 /* VVBasics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = VVBasics.framework; sourceTree = "<group>"; };
 		A57ACBE6269B0E7900EF3B02 /* VVMIDI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = VVMIDI.framework; sourceTree = "<group>"; };
+		A57ACC2B269B1A5100EF3B02 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,7 +76,7 @@
 		A56C4710269A088A00F2A65D /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				A56C470F269A088A00F2A65D /* JitsiKeybow.app */,
+				A56C470F269A088A00F2A65D /* Jitsi MIDI Keys.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -82,7 +84,7 @@
 		A56C4711269A088A00F2A65D /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				A56C4712269A088A00F2A65D /* KeybowJitsiApp.swift */,
+				A56C4712269A088A00F2A65D /* AppDelegate.swift */,
 				A56C4714269A088A00F2A65D /* ContentView.swift */,
 				A56C4722269A08B000F2A65D /* JitsiApp.swift */,
 				A56C4724269A111B00F2A65D /* MidiListener.swift */,
@@ -101,6 +103,7 @@
 		A57ACBD8269AECE900EF3B02 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				A57ACC2B269B1A5100EF3B02 /* Main.storyboard */,
 				A56C4716269A088B00F2A65D /* Assets.xcassets */,
 				A56C471B269A088B00F2A65D /* Info.plist */,
 			);
@@ -119,9 +122,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		A56C470E269A088A00F2A65D /* JitsiKeybow */ = {
+		A56C470E269A088A00F2A65D /* Jitsi MIDI Keys */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = A56C471F269A088B00F2A65D /* Build configuration list for PBXNativeTarget "JitsiKeybow" */;
+			buildConfigurationList = A56C471F269A088B00F2A65D /* Build configuration list for PBXNativeTarget "Jitsi MIDI Keys" */;
 			buildPhases = (
 				A56C470B269A088A00F2A65D /* Sources */,
 				A56C470C269A088A00F2A65D /* Frameworks */,
@@ -132,11 +135,11 @@
 			);
 			dependencies = (
 			);
-			name = JitsiKeybow;
+			name = "Jitsi MIDI Keys";
 			packageProductDependencies = (
 			);
 			productName = KeybowJitsi;
-			productReference = A56C470F269A088A00F2A65D /* JitsiKeybow.app */;
+			productReference = A56C470F269A088A00F2A65D /* Jitsi MIDI Keys.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -153,7 +156,7 @@
 					};
 				};
 			};
-			buildConfigurationList = A56C470A269A088A00F2A65D /* Build configuration list for PBXProject "JitsiKeybow" */;
+			buildConfigurationList = A56C470A269A088A00F2A65D /* Build configuration list for PBXProject "Jitsi MIDI Keys" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -168,7 +171,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				A56C470E269A088A00F2A65D /* JitsiKeybow */,
+				A56C470E269A088A00F2A65D /* Jitsi MIDI Keys */,
 			);
 		};
 /* End PBXProject section */
@@ -178,6 +181,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A57ACC2C269B1A5100EF3B02 /* Main.storyboard in Resources */,
 				A56C471A269A088B00F2A65D /* Preview Assets.xcassets in Resources */,
 				A56C4717269A088B00F2A65D /* Assets.xcassets in Resources */,
 			);
@@ -191,7 +195,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A56C4715269A088A00F2A65D /* ContentView.swift in Sources */,
-				A56C4713269A088A00F2A65D /* KeybowJitsiApp.swift in Sources */,
+				A56C4713269A088A00F2A65D /* AppDelegate.swift in Sources */,
 				A56C4725269A111B00F2A65D /* MidiListener.swift in Sources */,
 				A56C4723269A08B000F2A65D /* JitsiApp.swift in Sources */,
 			);
@@ -251,7 +255,6 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 11.3;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -306,7 +309,6 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 11.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = macosx;
@@ -336,8 +338,8 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 11.0;
-				PRODUCT_BUNDLE_IDENTIFIER = uk.pixlwave.JitsiKeybow;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				PRODUCT_BUNDLE_IDENTIFIER = uk.pixlwave.JitsiMIDIKeys;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 			};
@@ -364,8 +366,8 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 11.0;
-				PRODUCT_BUNDLE_IDENTIFIER = uk.pixlwave.JitsiKeybow;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				PRODUCT_BUNDLE_IDENTIFIER = uk.pixlwave.JitsiMIDIKeys;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 			};
@@ -374,7 +376,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		A56C470A269A088A00F2A65D /* Build configuration list for PBXProject "JitsiKeybow" */ = {
+		A56C470A269A088A00F2A65D /* Build configuration list for PBXProject "Jitsi MIDI Keys" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A56C471D269A088B00F2A65D /* Debug */,
@@ -383,7 +385,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		A56C471F269A088B00F2A65D /* Build configuration list for PBXNativeTarget "JitsiKeybow" */ = {
+		A56C471F269A088B00F2A65D /* Build configuration list for PBXNativeTarget "Jitsi MIDI Keys" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A56C4720269A088B00F2A65D /* Debug */,

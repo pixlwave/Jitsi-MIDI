@@ -7,8 +7,8 @@ struct ContentView: View {
     var body: some View {
         VStack {
             HStack {
-                Text("Status:")
-                Text(jitsi.processIdentifier != nil ? "Jitsi Electron Detected" : "Jitsi is not running")
+                Text("Jitsi Electron:")
+                Text(jitsi.processIdentifier != nil ? "Running" : "Not Running")
             }
         }
         .padding()

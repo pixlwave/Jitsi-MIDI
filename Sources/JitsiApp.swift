@@ -10,28 +10,28 @@ class JitsiApp: NSObject, ObservableObject {
     
     var cancellables = [AnyCancellable]()
     
-    let keybow = KeybowListener()
+    let midi = MidiListener()
     
-    let keymap = [
-        Character(" "): CGKeyCode(kVK_Space),     // push to talk
-        Character("3"): CGKeyCode(kVK_ANSI_3),    // focus on person 3
-        Character("0"): CGKeyCode(kVK_ANSI_0),    // focus on me
-        Character("m"): CGKeyCode(kVK_ANSI_M),    // toggle mic
+    let keymap: [UInt8: CGKeyCode] = [
+        36: CGKeyCode(kVK_Space),     // push to talk
+        37: CGKeyCode(kVK_ANSI_A),    // call quality
+        38: CGKeyCode(kVK_ANSI_T),    // speaker stats
+        39: CGKeyCode(kVK_ANSI_S),    // full screen
         
-        Character("a"): CGKeyCode(kVK_ANSI_A),    // call quality
-        Character("4"): CGKeyCode(kVK_ANSI_4),    // focus on person 4
-        Character("1"): CGKeyCode(kVK_ANSI_1),    // focus on person 1
-        Character("v"): CGKeyCode(kVK_ANSI_V),    // toggle video
+        40: CGKeyCode(kVK_ANSI_3),    // focus on person 3
+        41: CGKeyCode(kVK_ANSI_4),    // focus on person 4
+        42: CGKeyCode(kVK_ANSI_5),    // focus on person 5
+        43: CGKeyCode(kVK_ANSI_W),    // tile view
         
-        Character("t"): CGKeyCode(kVK_ANSI_T),    // speaker stats
-        Character("5"): CGKeyCode(kVK_ANSI_5),    // focus on person 5
-        Character("2"): CGKeyCode(kVK_ANSI_2),    // focus on person 2
-        Character("d"): CGKeyCode(kVK_ANSI_D),    // screen sharing
+        44: CGKeyCode(kVK_ANSI_0),    // focus on me
+        45: CGKeyCode(kVK_ANSI_1),    // focus on person 1
+        46: CGKeyCode(kVK_ANSI_2),    // focus on person 2
+        47: CGKeyCode(kVK_ANSI_F),    // video thumbnails
         
-        Character("s"): CGKeyCode(kVK_ANSI_S),    // full screen
-        Character("w"): CGKeyCode(kVK_ANSI_W),    // tile view
-        Character("f"): CGKeyCode(kVK_ANSI_F),    // video thumbnails
-        Character("r"): CGKeyCode(kVK_ANSI_R)     // raise hand
+        48: CGKeyCode(kVK_ANSI_M),    // toggle mic
+        49: CGKeyCode(kVK_ANSI_V),    // toggle video
+        50: CGKeyCode(kVK_ANSI_D),    // screen sharing
+        51: CGKeyCode(kVK_ANSI_R)     // raise hand
     ]
     
     private init(bundleIdentifier: String) {
@@ -42,8 +42,7 @@ class JitsiApp: NSObject, ObservableObject {
         
         super.init()
         
-        keybow.delegate = self
-        keybow.start()
+        midi.delegate = self
         
         NSWorkspace.shared.notificationCenter.publisher(for: NSWorkspace.didLaunchApplicationNotification)
             .sink(receiveValue: didLaunchApplication(notification:))
@@ -75,13 +74,13 @@ class JitsiApp: NSObject, ObservableObject {
 }
 
 
-extension JitsiApp: KeybowDelegate {
-    func send(key: Character, keyDown: Bool) {
+// MARK: - MidiDelegate
+extension JitsiApp: MidiDelegate {
+    func midi(note: UInt8, isOn: Bool) {
         guard
             let processIdentifier = processIdentifier,
-            let keyCode = keymap[key],
-            let source = CGEventSource(stateID: CGEventSourceStateID.privateState),
-            let event = CGEvent(keyboardEventSource: source, virtualKey: keyCode, keyDown: keyDown)
+            let keyCode = keymap[note],
+            let event = CGEvent(keyboardEventSource: nil, virtualKey: keyCode, keyDown: isOn)
         else { return }
         
         event.postToPid(processIdentifier)

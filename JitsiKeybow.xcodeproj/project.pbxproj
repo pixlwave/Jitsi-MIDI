@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 52;
+	objectVersion = 50;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -12,9 +12,27 @@
 		A56C4717269A088B00F2A65D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A56C4716269A088B00F2A65D /* Assets.xcassets */; };
 		A56C471A269A088B00F2A65D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A56C4719269A088B00F2A65D /* Preview Assets.xcassets */; };
 		A56C4723269A08B000F2A65D /* JitsiApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A56C4722269A08B000F2A65D /* JitsiApp.swift */; };
-		A56C4725269A111B00F2A65D /* KeybowListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = A56C4724269A111B00F2A65D /* KeybowListener.swift */; };
-		A56C472A269A21E900F2A65D /* ORSSerial in Frameworks */ = {isa = PBXBuildFile; productRef = A56C4729269A21E900F2A65D /* ORSSerial */; };
+		A56C4725269A111B00F2A65D /* MidiListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = A56C4724269A111B00F2A65D /* MidiListener.swift */; };
+		A57ACBE9269B0F4D00EF3B02 /* VVBasics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A57ACBE5269B0E7800EF3B02 /* VVBasics.framework */; };
+		A57ACBEA269B0F4D00EF3B02 /* VVBasics.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A57ACBE5269B0E7800EF3B02 /* VVBasics.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A57ACBEB269B0F4F00EF3B02 /* VVMIDI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A57ACBE6269B0E7900EF3B02 /* VVMIDI.framework */; };
+		A57ACBEC269B0F4F00EF3B02 /* VVMIDI.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A57ACBE6269B0E7900EF3B02 /* VVMIDI.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		A57ACBE2269B0DED00EF3B02 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				A57ACBEA269B0F4D00EF3B02 /* VVBasics.framework in Embed Frameworks */,
+				A57ACBEC269B0F4F00EF3B02 /* VVMIDI.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		A56C470F269A088A00F2A65D /* JitsiKeybow.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JitsiKeybow.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -24,7 +42,9 @@
 		A56C4719269A088B00F2A65D /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		A56C471B269A088B00F2A65D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A56C4722269A08B000F2A65D /* JitsiApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JitsiApp.swift; sourceTree = "<group>"; };
-		A56C4724269A111B00F2A65D /* KeybowListener.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeybowListener.swift; sourceTree = "<group>"; };
+		A56C4724269A111B00F2A65D /* MidiListener.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MidiListener.swift; sourceTree = "<group>"; };
+		A57ACBE5269B0E7800EF3B02 /* VVBasics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = VVBasics.framework; sourceTree = "<group>"; };
+		A57ACBE6269B0E7900EF3B02 /* VVMIDI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = VVMIDI.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -32,7 +52,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A56C472A269A21E900F2A65D /* ORSSerial in Frameworks */,
+				A57ACBE9269B0F4D00EF3B02 /* VVBasics.framework in Frameworks */,
+				A57ACBEB269B0F4F00EF3B02 /* VVMIDI.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -45,6 +66,7 @@
 				A56C4711269A088A00F2A65D /* Sources */,
 				A57ACBD8269AECE900EF3B02 /* Resources */,
 				A56C4718269A088B00F2A65D /* Preview Content */,
+				A57ACBDD269B0DB500EF3B02 /* Frameworks */,
 				A56C4710269A088A00F2A65D /* Products */,
 			);
 			sourceTree = "<group>";
@@ -63,7 +85,7 @@
 				A56C4712269A088A00F2A65D /* KeybowJitsiApp.swift */,
 				A56C4714269A088A00F2A65D /* ContentView.swift */,
 				A56C4722269A08B000F2A65D /* JitsiApp.swift */,
-				A56C4724269A111B00F2A65D /* KeybowListener.swift */,
+				A56C4724269A111B00F2A65D /* MidiListener.swift */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -85,6 +107,15 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
+		A57ACBDD269B0DB500EF3B02 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A57ACBE5269B0E7800EF3B02 /* VVBasics.framework */,
+				A57ACBE6269B0E7900EF3B02 /* VVMIDI.framework */,
+			);
+			path = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -95,6 +126,7 @@
 				A56C470B269A088A00F2A65D /* Sources */,
 				A56C470C269A088A00F2A65D /* Frameworks */,
 				A56C470D269A088A00F2A65D /* Resources */,
+				A57ACBE2269B0DED00EF3B02 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -102,7 +134,6 @@
 			);
 			name = JitsiKeybow;
 			packageProductDependencies = (
-				A56C4729269A21E900F2A65D /* ORSSerial */,
 			);
 			productName = KeybowJitsi;
 			productReference = A56C470F269A088A00F2A65D /* JitsiKeybow.app */;
@@ -132,7 +163,6 @@
 			);
 			mainGroup = A56C4706269A088A00F2A65D;
 			packageReferences = (
-				A56C4728269A21E900F2A65D /* XCRemoteSwiftPackageReference "ORSSerialPort" */,
 			);
 			productRefGroup = A56C4710269A088A00F2A65D /* Products */;
 			projectDirPath = "";
@@ -162,7 +192,7 @@
 			files = (
 				A56C4715269A088A00F2A65D /* ContentView.swift in Sources */,
 				A56C4713269A088A00F2A65D /* KeybowJitsiApp.swift in Sources */,
-				A56C4725269A111B00F2A65D /* KeybowListener.swift in Sources */,
+				A56C4725269A111B00F2A65D /* MidiListener.swift in Sources */,
 				A56C4723269A08B000F2A65D /* JitsiApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -296,6 +326,11 @@
 				DEVELOPMENT_TEAM = NU8A5Y875P;
 				ENABLE_HARDENED_RUNTIME = NO;
 				ENABLE_PREVIEWS = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/Frameworks",
+				);
 				INFOPLIST_FILE = Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -319,6 +354,11 @@
 				DEVELOPMENT_TEAM = NU8A5Y875P;
 				ENABLE_HARDENED_RUNTIME = NO;
 				ENABLE_PREVIEWS = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/Frameworks",
+				);
 				INFOPLIST_FILE = Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -353,25 +393,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		A56C4728269A21E900F2A65D /* XCRemoteSwiftPackageReference "ORSSerialPort" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/armadsen/ORSSerialPort";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 2.1.0;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		A56C4729269A21E900F2A65D /* ORSSerial */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = A56C4728269A21E900F2A65D /* XCRemoteSwiftPackageReference "ORSSerialPort" */;
-			productName = ORSSerial;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = A56C4707269A088A00F2A65D /* Project object */;
 }

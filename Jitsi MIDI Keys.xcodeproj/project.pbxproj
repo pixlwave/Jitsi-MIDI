@@ -18,6 +18,7 @@
 		A57ACBEB269B0F4F00EF3B02 /* VVMIDI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A57ACBE6269B0E7900EF3B02 /* VVMIDI.framework */; };
 		A57ACBEC269B0F4F00EF3B02 /* VVMIDI.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A57ACBE6269B0E7900EF3B02 /* VVMIDI.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A57ACC2C269B1A5100EF3B02 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A57ACC2B269B1A5100EF3B02 /* Main.storyboard */; };
+		A57ACC30269B5B7B00EF3B02 /* NotesGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57ACC2F269B5B7B00EF3B02 /* NotesGrid.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -47,6 +48,7 @@
 		A57ACBE5269B0E7800EF3B02 /* VVBasics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = VVBasics.framework; sourceTree = "<group>"; };
 		A57ACBE6269B0E7900EF3B02 /* VVMIDI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = VVMIDI.framework; sourceTree = "<group>"; };
 		A57ACC2B269B1A5100EF3B02 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		A57ACC2F269B5B7B00EF3B02 /* NotesGrid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesGrid.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +88,7 @@
 			children = (
 				A56C4712269A088A00F2A65D /* AppDelegate.swift */,
 				A56C4714269A088A00F2A65D /* ContentView.swift */,
+				A57ACC2F269B5B7B00EF3B02 /* NotesGrid.swift */,
 				A56C4722269A08B000F2A65D /* JitsiApp.swift */,
 				A56C4724269A111B00F2A65D /* MidiListener.swift */,
 			);
@@ -195,6 +198,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A56C4715269A088A00F2A65D /* ContentView.swift in Sources */,
+				A57ACC30269B5B7B00EF3B02 /* NotesGrid.swift in Sources */,
 				A56C4713269A088A00F2A65D /* AppDelegate.swift in Sources */,
 				A56C4725269A111B00F2A65D /* MidiListener.swift in Sources */,
 				A56C4723269A08B000F2A65D /* JitsiApp.swift in Sources */,

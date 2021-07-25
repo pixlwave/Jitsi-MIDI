@@ -7,6 +7,7 @@ class Jitsi: NSObject, ObservableObject {
     
     let bundleIdentifier: String
     @Published var processIdentifier: pid_t?
+    @Published var lastMidi: UInt8?
     
     var cancellables = [AnyCancellable]()
     
@@ -93,6 +94,8 @@ class Jitsi: NSObject, ObservableObject {
 // MARK: - MidiDelegate
 extension Jitsi: MidiDelegate {
     func midi(note: UInt8, isOn: Bool) {
+        DispatchQueue.main.async { if isOn { self.lastMidi = note } }
+        
         guard
             let processIdentifier = processIdentifier,
             let keyCode = keymap[note],

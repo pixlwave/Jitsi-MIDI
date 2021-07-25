@@ -2,8 +2,8 @@ import Quartz
 import Carbon.HIToolbox
 import Combine
 
-class JitsiApp: NSObject, ObservableObject {
-    static var shared: JitsiApp = JitsiApp(bundleIdentifier: "org.jitsi.jitsi-meet")
+class Jitsi: NSObject, ObservableObject {
+    static var shared: Jitsi = Jitsi(bundleIdentifier: "org.jitsi.jitsi-meet")
     
     let bundleIdentifier: String
     @Published var processIdentifier: pid_t?
@@ -91,7 +91,7 @@ class JitsiApp: NSObject, ObservableObject {
 
 
 // MARK: - MidiDelegate
-extension JitsiApp: MidiDelegate {
+extension Jitsi: MidiDelegate {
     func midi(note: UInt8, isOn: Bool) {
         guard
             let processIdentifier = processIdentifier,

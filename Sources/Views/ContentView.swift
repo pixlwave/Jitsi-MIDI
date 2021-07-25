@@ -2,7 +2,7 @@ import SwiftUI
 import Carbon.HIToolbox
 
 struct ContentView: View {
-    @EnvironmentObject var jitsi: JitsiApp
+    @EnvironmentObject var jitsi: Jitsi
     
     var body: some View {
         VStack {
@@ -18,6 +18,14 @@ struct ContentView: View {
             .padding(.horizontal, 10)
             
             NotesGrid()
+            
+            HStack {
+                Spacer()
+                
+                Button("Quit") {
+                    NSRunningApplication.current.terminate()
+                }
+            }
         }
         .padding()
         .frame(maxWidth: .infinity, maxHeight: .infinity)

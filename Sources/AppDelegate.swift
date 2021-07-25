@@ -22,7 +22,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         window.center()
         window.setFrameAutosaveName("Main Window")
         window.contentView = NSHostingView(rootView: contentView
-                                            .environmentObject(JitsiApp.shared))
+                                            .environmentObject(Jitsi.shared))
         
         // creating the status bar item when declared crashes on macOS 11.5
         statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)

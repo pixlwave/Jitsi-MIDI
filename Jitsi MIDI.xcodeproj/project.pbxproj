@@ -17,8 +17,9 @@
 		A57ACBEA269B0F4D00EF3B02 /* VVBasics.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A57ACBE5269B0E7800EF3B02 /* VVBasics.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A57ACBEB269B0F4F00EF3B02 /* VVMIDI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A57ACBE6269B0E7900EF3B02 /* VVMIDI.framework */; };
 		A57ACBEC269B0F4F00EF3B02 /* VVMIDI.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A57ACBE6269B0E7900EF3B02 /* VVMIDI.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		A57ACC2C269B1A5100EF3B02 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A57ACC2B269B1A5100EF3B02 /* Main.storyboard */; };
 		A57ACC30269B5B7B00EF3B02 /* NotesGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57ACC2F269B5B7B00EF3B02 /* NotesGrid.swift */; };
+		A58E8EBE26ADB10800F6A5A9 /* VVMIDIMsgType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A58E8EBD26ADB10800F6A5A9 /* VVMIDIMsgType.swift */; };
+		A5A5CBAF26AD8CC7006F09D5 /* JitsiMIDIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5A5CBAE26AD8CC7006F09D5 /* JitsiMIDIApp.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -47,9 +48,10 @@
 		A56C4724269A111B00F2A65D /* MidiListener.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MidiListener.swift; sourceTree = "<group>"; };
 		A57ACBE5269B0E7800EF3B02 /* VVBasics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = VVBasics.framework; sourceTree = "<group>"; };
 		A57ACBE6269B0E7900EF3B02 /* VVMIDI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = VVMIDI.framework; sourceTree = "<group>"; };
-		A57ACC2B269B1A5100EF3B02 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		A57ACC2F269B5B7B00EF3B02 /* NotesGrid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesGrid.swift; sourceTree = "<group>"; };
 		A57ACC31269B65EB00EF3B02 /* Jitsi MIDI.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Jitsi MIDI.entitlements"; sourceTree = "<group>"; };
+		A58E8EBD26ADB10800F6A5A9 /* VVMIDIMsgType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VVMIDIMsgType.swift; sourceTree = "<group>"; };
+		A5A5CBAE26AD8CC7006F09D5 /* JitsiMIDIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JitsiMIDIApp.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,11 +89,11 @@
 		A56C4711269A088A00F2A65D /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				A5A5CBAE26AD8CC7006F09D5 /* JitsiMIDIApp.swift */,
 				A56C4712269A088A00F2A65D /* AppDelegate.swift */,
-				A56C4714269A088A00F2A65D /* ContentView.swift */,
-				A57ACC2F269B5B7B00EF3B02 /* NotesGrid.swift */,
-				A56C4722269A08B000F2A65D /* JitsiApp.swift */,
-				A56C4724269A111B00F2A65D /* MidiListener.swift */,
+				A58E8EC026ADB14800F6A5A9 /* Views */,
+				A58E8EC126ADB15000F6A5A9 /* Engine */,
+				A58E8EBF26ADB12B00F6A5A9 /* Extensions */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -107,7 +109,6 @@
 		A57ACBD8269AECE900EF3B02 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				A57ACC2B269B1A5100EF3B02 /* Main.storyboard */,
 				A56C4716269A088B00F2A65D /* Assets.xcassets */,
 				A56C471B269A088B00F2A65D /* Info.plist */,
 				A57ACC31269B65EB00EF3B02 /* Jitsi MIDI.entitlements */,
@@ -122,6 +123,32 @@
 				A57ACBE6269B0E7900EF3B02 /* VVMIDI.framework */,
 			);
 			path = Frameworks;
+			sourceTree = "<group>";
+		};
+		A58E8EBF26ADB12B00F6A5A9 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				A58E8EBD26ADB10800F6A5A9 /* VVMIDIMsgType.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		A58E8EC026ADB14800F6A5A9 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				A56C4714269A088A00F2A65D /* ContentView.swift */,
+				A57ACC2F269B5B7B00EF3B02 /* NotesGrid.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		A58E8EC126ADB15000F6A5A9 /* Engine */ = {
+			isa = PBXGroup;
+			children = (
+				A56C4722269A08B000F2A65D /* JitsiApp.swift */,
+				A56C4724269A111B00F2A65D /* MidiListener.swift */,
+			);
+			path = Engine;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -186,7 +213,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A57ACC2C269B1A5100EF3B02 /* Main.storyboard in Resources */,
 				A56C471A269A088B00F2A65D /* Preview Assets.xcassets in Resources */,
 				A56C4717269A088B00F2A65D /* Assets.xcassets in Resources */,
 			);
@@ -199,7 +225,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A5A5CBAF26AD8CC7006F09D5 /* JitsiMIDIApp.swift in Sources */,
 				A56C4715269A088A00F2A65D /* ContentView.swift in Sources */,
+				A58E8EBE26ADB10800F6A5A9 /* VVMIDIMsgType.swift in Sources */,
 				A57ACC30269B5B7B00EF3B02 /* NotesGrid.swift in Sources */,
 				A56C4713269A088A00F2A65D /* AppDelegate.swift in Sources */,
 				A56C4725269A111B00F2A65D /* MidiListener.swift in Sources */,
@@ -261,7 +289,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				MACOSX_DEPLOYMENT_TARGET = 11.1;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -316,7 +344,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				MACOSX_DEPLOYMENT_TARGET = 11.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = macosx;
@@ -333,7 +361,7 @@
 				CODE_SIGN_ENTITLEMENTS = "Resources/Jitsi MIDI.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_ASSET_PATHS = "\"Preview Content\"";
 				DEVELOPMENT_TEAM = NU8A5Y875P;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -348,7 +376,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				MACOSX_DEPLOYMENT_TARGET = 11.1;
 				PRODUCT_BUNDLE_IDENTIFIER = uk.pixlwave.JitsiMIDI;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -363,7 +391,7 @@
 				CODE_SIGN_ENTITLEMENTS = "Resources/Jitsi MIDI.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_ASSET_PATHS = "\"Preview Content\"";
 				DEVELOPMENT_TEAM = NU8A5Y875P;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -378,7 +406,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				MACOSX_DEPLOYMENT_TARGET = 11.1;
 				PRODUCT_BUNDLE_IDENTIFIER = uk.pixlwave.JitsiMIDI;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;

@@ -34,6 +34,8 @@ class JitsiApp: NSObject, ObservableObject {
         51: CGKeyCode(kVK_ANSI_R)     // raise hand
     ]
     
+    var tickTimer: AnyCancellable?
+    
     private init(bundleIdentifier: String) {
         self.bundleIdentifier = bundleIdentifier
         
@@ -51,16 +53,30 @@ class JitsiApp: NSObject, ObservableObject {
         NSWorkspace.shared.notificationCenter.publisher(for: NSWorkspace.didTerminateApplicationNotification)
             .sink(receiveValue: didTerminateApplication(notification:))
             .store(in: &cancellables)
+        
+        tickTimer = Timer.publish(every: 5, on: .main, in: .common)
+            .autoconnect()
+            .sink { _ in
+                if self.processIdentifier != nil {
+                    self.midi.keybowStart()
+                }
+            }
     }
     
     func didLaunchApplication(notification: Notification) {
         guard let app = application(from: notification) else { return }
         processIdentifier = app.processIdentifier
+        
+        // light up the keybow's leds
+        midi.keybowStart()
     }
     
     func didTerminateApplication(notification: Notification) {
         guard let _ = application(from: notification) else { return }
         processIdentifier = nil
+        
+        // turn off the keybow's leds
+        midi.keybowStop()
     }
     
     func application(from notification: Notification) -> NSRunningApplication? {

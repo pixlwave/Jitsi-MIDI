@@ -1,15 +1,19 @@
 import Cocoa
 import SwiftUI
 
-@main
 class AppDelegate: NSObject, NSApplicationDelegate {
     var window: NSWindow!
     
+    var statusItem: NSStatusItem!
+    
     func applicationDidFinishLaunching(_ aNotification: Notification) {
-        // Create the SwiftUI view that provides the window contents.
+        // hide the dock icon
+        NSApplication.shared.setActivationPolicy(NSApplication.ActivationPolicy.accessory)
+        
+        // create the main view
         let contentView = ContentView()
         
-        // Create the window and set the content view.
+        // create the window and set the content view
         window = NSWindow(
             contentRect: NSRect(x: 0, y: 0, width: 480, height: 300),
             styleMask: [.titled, .closable, .miniaturizable, .resizable, .fullSizeContentView],
@@ -19,7 +23,16 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         window.setFrameAutosaveName("Main Window")
         window.contentView = NSHostingView(rootView: contentView
                                             .environmentObject(JitsiApp.shared))
-        window.makeKeyAndOrderFront(nil)
+        
+        // creating the status bar item when declared crashes on macOS 11.5
+        statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
+        statusItem.button?.image = NSImage(systemSymbolName: "pianokeys", accessibilityDescription: "Jitsi MIDI")
+        statusItem.button?.action = #selector(showWindow)
+    }
+    
+    @objc func showWindow() {
+        window.makeKeyAndOrderFront(self)
+        NSRunningApplication.current.activate(options: .activateIgnoringOtherApps)
     }
     
     func applicationWillTerminate(_ aNotification: Notification) {

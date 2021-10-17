@@ -1,6 +1,0 @@
-framework module VVMIDI {
-  umbrella header "VVMIDI.h"
-
-  export *
-  module * { export * }
-}

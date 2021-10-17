@@ -3,22 +3,18 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A55CFFAC271C432B0033FC6C /* AudioKit in Frameworks */ = {isa = PBXBuildFile; productRef = A55CFFAB271C432B0033FC6C /* AudioKit */; };
 		A56C4713269A088A00F2A65D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A56C4712269A088A00F2A65D /* AppDelegate.swift */; };
 		A56C4715269A088A00F2A65D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A56C4714269A088A00F2A65D /* ContentView.swift */; };
 		A56C4717269A088B00F2A65D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A56C4716269A088B00F2A65D /* Assets.xcassets */; };
 		A56C471A269A088B00F2A65D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A56C4719269A088B00F2A65D /* Preview Assets.xcassets */; };
 		A56C4723269A08B000F2A65D /* Jitsi.swift in Sources */ = {isa = PBXBuildFile; fileRef = A56C4722269A08B000F2A65D /* Jitsi.swift */; };
-		A56C4725269A111B00F2A65D /* MidiListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = A56C4724269A111B00F2A65D /* MidiListener.swift */; };
-		A57ACBE9269B0F4D00EF3B02 /* VVBasics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A57ACBE5269B0E7800EF3B02 /* VVBasics.framework */; };
-		A57ACBEA269B0F4D00EF3B02 /* VVBasics.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A57ACBE5269B0E7800EF3B02 /* VVBasics.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		A57ACBEB269B0F4F00EF3B02 /* VVMIDI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A57ACBE6269B0E7900EF3B02 /* VVMIDI.framework */; };
-		A57ACBEC269B0F4F00EF3B02 /* VVMIDI.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A57ACBE6269B0E7900EF3B02 /* VVMIDI.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A56C4725269A111B00F2A65D /* MIDIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A56C4724269A111B00F2A65D /* MIDIManager.swift */; };
 		A57ACC30269B5B7B00EF3B02 /* NotesGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57ACC2F269B5B7B00EF3B02 /* NotesGrid.swift */; };
-		A58E8EBE26ADB10800F6A5A9 /* VVMIDIMsgType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A58E8EBD26ADB10800F6A5A9 /* VVMIDIMsgType.swift */; };
 		A5A5CBAF26AD8CC7006F09D5 /* JitsiMIDIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5A5CBAE26AD8CC7006F09D5 /* JitsiMIDIApp.swift */; };
 /* End PBXBuildFile section */
 
@@ -29,8 +25,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				A57ACBEA269B0F4D00EF3B02 /* VVBasics.framework in Embed Frameworks */,
-				A57ACBEC269B0F4F00EF3B02 /* VVMIDI.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -45,12 +39,9 @@
 		A56C4719269A088B00F2A65D /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		A56C471B269A088B00F2A65D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A56C4722269A08B000F2A65D /* Jitsi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Jitsi.swift; sourceTree = "<group>"; };
-		A56C4724269A111B00F2A65D /* MidiListener.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MidiListener.swift; sourceTree = "<group>"; };
-		A57ACBE5269B0E7800EF3B02 /* VVBasics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = VVBasics.framework; sourceTree = "<group>"; };
-		A57ACBE6269B0E7900EF3B02 /* VVMIDI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = VVMIDI.framework; sourceTree = "<group>"; };
+		A56C4724269A111B00F2A65D /* MIDIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MIDIManager.swift; sourceTree = "<group>"; };
 		A57ACC2F269B5B7B00EF3B02 /* NotesGrid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesGrid.swift; sourceTree = "<group>"; };
 		A57ACC31269B65EB00EF3B02 /* Jitsi MIDI.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Jitsi MIDI.entitlements"; sourceTree = "<group>"; };
-		A58E8EBD26ADB10800F6A5A9 /* VVMIDIMsgType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VVMIDIMsgType.swift; sourceTree = "<group>"; };
 		A5A5CBAE26AD8CC7006F09D5 /* JitsiMIDIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JitsiMIDIApp.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -59,8 +50,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A57ACBE9269B0F4D00EF3B02 /* VVBasics.framework in Frameworks */,
-				A57ACBEB269B0F4F00EF3B02 /* VVMIDI.framework in Frameworks */,
+				A55CFFAC271C432B0033FC6C /* AudioKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -73,7 +63,6 @@
 				A56C4711269A088A00F2A65D /* Sources */,
 				A57ACBD8269AECE900EF3B02 /* Resources */,
 				A56C4718269A088B00F2A65D /* Preview Content */,
-				A57ACBDD269B0DB500EF3B02 /* Frameworks */,
 				A56C4710269A088A00F2A65D /* Products */,
 			);
 			sourceTree = "<group>";
@@ -93,7 +82,6 @@
 				A56C4712269A088A00F2A65D /* AppDelegate.swift */,
 				A58E8EC026ADB14800F6A5A9 /* Views */,
 				A58E8EC126ADB15000F6A5A9 /* Engine */,
-				A58E8EBF26ADB12B00F6A5A9 /* Extensions */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -116,23 +104,6 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
-		A57ACBDD269B0DB500EF3B02 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				A57ACBE5269B0E7800EF3B02 /* VVBasics.framework */,
-				A57ACBE6269B0E7900EF3B02 /* VVMIDI.framework */,
-			);
-			path = Frameworks;
-			sourceTree = "<group>";
-		};
-		A58E8EBF26ADB12B00F6A5A9 /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-				A58E8EBD26ADB10800F6A5A9 /* VVMIDIMsgType.swift */,
-			);
-			path = Extensions;
-			sourceTree = "<group>";
-		};
 		A58E8EC026ADB14800F6A5A9 /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -146,7 +117,7 @@
 			isa = PBXGroup;
 			children = (
 				A56C4722269A08B000F2A65D /* Jitsi.swift */,
-				A56C4724269A111B00F2A65D /* MidiListener.swift */,
+				A56C4724269A111B00F2A65D /* MIDIManager.swift */,
 			);
 			path = Engine;
 			sourceTree = "<group>";
@@ -169,6 +140,7 @@
 			);
 			name = "Jitsi MIDI";
 			packageProductDependencies = (
+				A55CFFAB271C432B0033FC6C /* AudioKit */,
 			);
 			productName = KeybowJitsi;
 			productReference = A56C470F269A088A00F2A65D /* Jitsi MIDI.app */;
@@ -198,6 +170,7 @@
 			);
 			mainGroup = A56C4706269A088A00F2A65D;
 			packageReferences = (
+				A55CFFAA271C432B0033FC6C /* XCRemoteSwiftPackageReference "AudioKit" */,
 			);
 			productRefGroup = A56C4710269A088A00F2A65D /* Products */;
 			projectDirPath = "";
@@ -227,10 +200,9 @@
 			files = (
 				A5A5CBAF26AD8CC7006F09D5 /* JitsiMIDIApp.swift in Sources */,
 				A56C4715269A088A00F2A65D /* ContentView.swift in Sources */,
-				A58E8EBE26ADB10800F6A5A9 /* VVMIDIMsgType.swift in Sources */,
 				A57ACC30269B5B7B00EF3B02 /* NotesGrid.swift in Sources */,
 				A56C4713269A088A00F2A65D /* AppDelegate.swift in Sources */,
-				A56C4725269A111B00F2A65D /* MidiListener.swift in Sources */,
+				A56C4725269A111B00F2A65D /* MIDIManager.swift in Sources */,
 				A56C4723269A08B000F2A65D /* Jitsi.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -361,7 +333,7 @@
 				CODE_SIGN_ENTITLEMENTS = "Resources/Jitsi MIDI.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 9;
 				DEVELOPMENT_ASSET_PATHS = "\"Preview Content\"";
 				DEVELOPMENT_TEAM = NU8A5Y875P;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -391,7 +363,7 @@
 				CODE_SIGN_ENTITLEMENTS = "Resources/Jitsi MIDI.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 9;
 				DEVELOPMENT_ASSET_PATHS = "\"Preview Content\"";
 				DEVELOPMENT_TEAM = NU8A5Y875P;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -435,6 +407,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		A55CFFAA271C432B0033FC6C /* XCRemoteSwiftPackageReference "AudioKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/AudioKit/AudioKit";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		A55CFFAB271C432B0033FC6C /* AudioKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A55CFFAA271C432B0033FC6C /* XCRemoteSwiftPackageReference "AudioKit" */;
+			productName = AudioKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = A56C4707269A088A00F2A65D /* Project object */;
 }

@@ -1,6 +1,0 @@
-framework module VVBasics {
-  umbrella header "VVBasics.h"
-
-  export *
-  module * { export * }
-}

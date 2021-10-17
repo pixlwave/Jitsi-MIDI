@@ -11,7 +11,7 @@ class Jitsi: NSObject, ObservableObject {
     
     var cancellables = [AnyCancellable]()
     
-    let midi = MidiListener()
+    let midi = MIDIManager()
     
     let keymap: [UInt8: CGKeyCode] = [
         36: CGKeyCode(kVK_Space),     // push to talk
@@ -92,7 +92,7 @@ class Jitsi: NSObject, ObservableObject {
 
 
 // MARK: - MidiDelegate
-extension Jitsi: MidiDelegate {
+extension Jitsi: MIDIDelegate {
     func midi(note: UInt8, isOn: Bool) {
         DispatchQueue.main.async { if isOn { self.lastMidi = note } }
         

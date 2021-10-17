@@ -20,12 +20,12 @@ class MIDIManager {
     }
     
     func keybowStart() {
-        let event = MIDIEvent(data: [MIDISystemCommand.start.rawValue, 0])
+        let event = MIDIEvent(data: [MIDISystemCommand.start.byte, 0])
         midi.sendEvent(event)
     }
     
     func keybowStop() {
-        let event = MIDIEvent(data: [MIDISystemCommand.stop.rawValue, 0])
+        let event = MIDIEvent(data: [MIDISystemCommand.stop.byte, 0])
         midi.sendEvent(event)
     }
 }

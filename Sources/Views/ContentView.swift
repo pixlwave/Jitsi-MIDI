@@ -22,12 +22,16 @@ struct ContentView: View {
             HStack {
                 HStack {
                     Text("Last MIDI Note:")
-                    Text(jitsi.lastMidi != nil ? jitsi.lastMidi!.description : "None")
+                    Text(jitsi.lastMidi?.description ?? "None")
                 }
                 .foregroundColor(.secondary)
                 
                 
                 Spacer()
+                
+                Button("Reload") {
+                    jitsi.midi.reset()
+                }
                 
                 Button("Quit") {
                     NSRunningApplication.current.terminate()

@@ -14,9 +14,23 @@ class MIDIManager {
     var delegate: MIDIDelegate?
     
     init() {
+        midi.addListener(self)
+        start()
+    }
+    
+    private func start() {
         midi.openInput()
         midi.openOutput()
-        midi.addListener(self)
+    }
+    
+    private func stop() {
+        midi.closeAllInputs()
+        midi.closeOutput()
+    }
+    
+    func reset() {
+        stop()
+        start()
     }
     
     func keybowStart() {

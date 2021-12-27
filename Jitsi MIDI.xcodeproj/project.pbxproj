@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A50F7DCD2778CFAB00ED2C41 /* Command.swift in Sources */ = {isa = PBXBuildFile; fileRef = A50F7DCC2778CFAB00ED2C41 /* Command.swift */; };
 		A55CFFAC271C432B0033FC6C /* AudioKit in Frameworks */ = {isa = PBXBuildFile; productRef = A55CFFAB271C432B0033FC6C /* AudioKit */; };
 		A56C4713269A088A00F2A65D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A56C4712269A088A00F2A65D /* AppDelegate.swift */; };
 		A56C4715269A088A00F2A65D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A56C4714269A088A00F2A65D /* ContentView.swift */; };
@@ -32,6 +33,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		A50F7DCC2778CFAB00ED2C41 /* Command.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Command.swift; sourceTree = "<group>"; };
 		A56C470F269A088A00F2A65D /* Jitsi MIDI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Jitsi MIDI.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A56C4712269A088A00F2A65D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A56C4714269A088A00F2A65D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -117,6 +119,7 @@
 			isa = PBXGroup;
 			children = (
 				A56C4722269A08B000F2A65D /* Jitsi.swift */,
+				A50F7DCC2778CFAB00ED2C41 /* Command.swift */,
 				A56C4724269A111B00F2A65D /* MIDIManager.swift */,
 			);
 			path = Engine;
@@ -202,6 +205,7 @@
 				A56C4715269A088A00F2A65D /* ContentView.swift in Sources */,
 				A57ACC30269B5B7B00EF3B02 /* NotesGrid.swift in Sources */,
 				A56C4713269A088A00F2A65D /* AppDelegate.swift in Sources */,
+				A50F7DCD2778CFAB00ED2C41 /* Command.swift in Sources */,
 				A56C4725269A111B00F2A65D /* MIDIManager.swift in Sources */,
 				A56C4723269A08B000F2A65D /* Jitsi.swift in Sources */,
 			);

@@ -2,26 +2,34 @@ import SwiftUI
 
 struct NotesGrid: View {
     let notes = [
-        NoteModel(color: .green, text: "Toggle Mic", note: "C2"),
-        NoteModel(color: .red, text: "Toggle Camera", note: "C♯2"),
-        NoteModel(color: .blue, text: "Share Screen", note: "D2"),
-        NoteModel(color: .white, text: "Raise Hand", note: "E♭2"),
+        [
+            NoteModel(color: .yellow, text: "Clap", note: "C1"),
+            NoteModel(color: .green, text: "Toggle Video", note: "C♯1"),
+            NoteModel(color: .orange, text: "Toggle Mic", note: "D1"),
+            NoteModel(color: Color(.systemRed), text: "Push To Talk", note: "E♭1")
+        ],
         
-        NoteModel(color: .pink, text: "Focus Me", note: "A♭1"),
-        NoteModel(color: .pink, text: "Focus #1", note: "A1"),
-        NoteModel(color: .pink, text: "Focus #2", note: "B♭1"),
-        NoteModel(color: .yellow, text: "Toggle Thumbnails", note: "B1"),
+        [
+            NoteModel(color: .yellow, text: "Laugh", note: "E1"),
+            NoteModel(color: .blue, text: "Share Screen", note: "F1"),
+            NoteModel(color: .pink, text: "Toggle Thumbnails", note: "F♯1"),
+            NoteModel(color: .pink, text: "Toggle Tile View", note: "G1")
+        ],
         
-        NoteModel(color: .pink, text: "Focus #3", note: "E1"),
-        NoteModel(color: .pink, text: "Focus #4", note: "F1"),
-        NoteModel(color: .pink, text: "Focus #5", note: "F♯1"),
-        NoteModel(color: .yellow, text: "Toggle Tile View", note: "G1"),
+        [
+            NoteModel(color: .yellow, text: "Thumbs Up", note: "A♭1"),
+            NoteModel(color: .yellow, text: "Surprised", note: "A1"),
+            NoteModel(color: .yellow, text: "Raise Hand", note: "B♭1"),
+            NoteModel(color: .blue, text: "End Call", note: "B1")
+        ],
         
-        NoteModel(color: .orange, text: "Push To Talk", note: "C1"),
-        NoteModel(color: Color(.systemTeal), text: "Call Quality", note: "C♯1"),
-        NoteModel(color: Color(.systemTeal), text: "Speaker Stats", note: "D1"),
-        NoteModel(color: .blue, text: "Full Screen", note: "E♭1")
-    ]
+        [
+            NoteModel(color: Color(.systemTeal), text: "F1", note: "C2"),
+            NoteModel(color: Color(.systemTeal), text: "F2", note: "C♯2"),
+            NoteModel(color: Color(.systemTeal), text: "F3", note: "D2"),
+            NoteModel(color: .white, text: "Special", note: "E♭2")
+        ]
+    ].reversed().reduce([], +)
     
     var body: some View {
         VStack(spacing: 5) {

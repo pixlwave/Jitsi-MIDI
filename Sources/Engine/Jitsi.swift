@@ -13,26 +13,26 @@ class Jitsi: NSObject, ObservableObject {
     
     let midi = MIDIManager()
     
-    let keymap: [UInt8: CGKeyCode] = [
-        36: CGKeyCode(kVK_Space),     // push to talk
-        37: CGKeyCode(kVK_ANSI_A),    // call quality
-        38: CGKeyCode(kVK_ANSI_T),    // speaker stats
-        39: CGKeyCode(kVK_ANSI_S),    // full screen
+    let keymap: [UInt8: Command] = [
+        36: OptionKeyCommand(key: kVK_ANSI_C),      // reaction - clap
+        37: KeyCommand(key: kVK_ANSI_V),            // toggle video
+        38: KeyCommand(key: kVK_ANSI_M),            // toggle mic
+        39: MomentaryKeyCommand(key: kVK_Space),    // push to talk
         
-        40: CGKeyCode(kVK_ANSI_3),    // focus on person 3
-        41: CGKeyCode(kVK_ANSI_4),    // focus on person 4
-        42: CGKeyCode(kVK_ANSI_5),    // focus on person 5
-        43: CGKeyCode(kVK_ANSI_W),    // tile view
+        40: OptionKeyCommand(key: kVK_ANSI_L),      // reaction - laugh
+        41: KeyCommand(key: kVK_ANSI_D),            // screen sharing
+        42: KeyCommand(key: kVK_ANSI_F),            // toggle thumbnails
+        43: KeyCommand(key: kVK_ANSI_W),            // tile view
         
-        44: CGKeyCode(kVK_ANSI_0),    // focus on me
-        45: CGKeyCode(kVK_ANSI_1),    // focus on person 1
-        46: CGKeyCode(kVK_ANSI_2),    // focus on person 2
-        47: CGKeyCode(kVK_ANSI_F),    // video thumbnails
+        44: OptionKeyCommand(key: kVK_ANSI_T),      // reaction - thumbs up
+        45: OptionKeyCommand(key: kVK_ANSI_O),      // reaction - surprised
+        46: KeyCommand(key: kVK_ANSI_R),            // raise hand
+        47: ShellCommand(command: ""),              // end call ???
         
-        48: CGKeyCode(kVK_ANSI_M),    // toggle mic
-        49: CGKeyCode(kVK_ANSI_V),    // toggle video
-        50: CGKeyCode(kVK_ANSI_D),    // screen sharing
-        51: CGKeyCode(kVK_ANSI_R)     // raise hand
+        48: ShellCommand(command: ""),              // function 1
+        49: ShellCommand(command: ""),              // function 2
+        50: ShellCommand(command: ""),              // function 3
+        51: ShellCommand(command: "")               // special
     ]
     
     var tickTimer: AnyCancellable?
@@ -98,10 +98,9 @@ extension Jitsi: MIDIDelegate {
         
         guard
             let processIdentifier = processIdentifier,
-            let keyCode = keymap[note],
-            let event = CGEvent(keyboardEventSource: nil, virtualKey: keyCode, keyDown: isOn)
+            let command = keymap[note]
         else { return }
         
-        event.postToPid(processIdentifier)
+        command.run(keyDown: isOn, for: processIdentifier)
     }
 }

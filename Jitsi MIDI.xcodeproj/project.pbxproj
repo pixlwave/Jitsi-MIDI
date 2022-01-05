@@ -17,6 +17,8 @@
 		A56C4725269A111B00F2A65D /* MIDIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A56C4724269A111B00F2A65D /* MIDIManager.swift */; };
 		A57ACC30269B5B7B00EF3B02 /* NotesGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57ACC2F269B5B7B00EF3B02 /* NotesGrid.swift */; };
 		A5A5CBAF26AD8CC7006F09D5 /* JitsiMIDIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5A5CBAE26AD8CC7006F09D5 /* JitsiMIDIApp.swift */; };
+		A5FE7B9A2785D5DD001594CC /* LinkEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5FE7B992785D5DD001594CC /* LinkEditor.swift */; };
+		A5FE7B9C2785D62C001594CC /* NoteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5FE7B9B2785D62C001594CC /* NoteCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -45,6 +47,8 @@
 		A57ACC2F269B5B7B00EF3B02 /* NotesGrid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesGrid.swift; sourceTree = "<group>"; };
 		A57ACC31269B65EB00EF3B02 /* Jitsi MIDI.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Jitsi MIDI.entitlements"; sourceTree = "<group>"; };
 		A5A5CBAE26AD8CC7006F09D5 /* JitsiMIDIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JitsiMIDIApp.swift; sourceTree = "<group>"; };
+		A5FE7B992785D5DD001594CC /* LinkEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkEditor.swift; sourceTree = "<group>"; };
+		A5FE7B9B2785D62C001594CC /* NoteCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +115,8 @@
 			children = (
 				A56C4714269A088A00F2A65D /* ContentView.swift */,
 				A57ACC2F269B5B7B00EF3B02 /* NotesGrid.swift */,
+				A5FE7B9B2785D62C001594CC /* NoteCell.swift */,
+				A5FE7B992785D5DD001594CC /* LinkEditor.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -201,11 +207,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A5FE7B9A2785D5DD001594CC /* LinkEditor.swift in Sources */,
 				A5A5CBAF26AD8CC7006F09D5 /* JitsiMIDIApp.swift in Sources */,
 				A56C4715269A088A00F2A65D /* ContentView.swift in Sources */,
 				A57ACC30269B5B7B00EF3B02 /* NotesGrid.swift in Sources */,
 				A56C4713269A088A00F2A65D /* AppDelegate.swift in Sources */,
 				A50F7DCD2778CFAB00ED2C41 /* Command.swift in Sources */,
+				A5FE7B9C2785D62C001594CC /* NoteCell.swift in Sources */,
 				A56C4725269A111B00F2A65D /* MIDIManager.swift in Sources */,
 				A56C4723269A08B000F2A65D /* Jitsi.swift in Sources */,
 			);

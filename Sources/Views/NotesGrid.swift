@@ -24,9 +24,9 @@ struct NotesGrid: View {
         ],
         
         [
-            NoteModel(color: Color(.systemTeal), text: "F1", note: "C2"),
-            NoteModel(color: Color(.systemTeal), text: "F2", note: "C♯2"),
-            NoteModel(color: Color(.systemTeal), text: "F3", note: "D2"),
+            NoteModel(color: Color(.systemTeal), text: "F1 Open Link", note: "C2"),
+            NoteModel(color: Color(.systemTeal), text: "F2 Open Link", note: "C♯2"),
+            NoteModel(color: Color(.systemTeal), text: "F3 Open Link", note: "D2"),
             NoteModel(color: .white, text: "Special", note: "E♭2")
         ]
     ].reversed().reduce([], +)
@@ -44,32 +44,6 @@ struct NotesGrid: View {
         }
         .padding(5)
     }
-}
-
-struct NoteCell: View {
-    let note: NoteModel
-    
-    var body: some View {
-        VStack {
-            Text(note.text)
-                .lineLimit(2)
-                .multilineTextAlignment(.center)
-        }
-        .frame(width: 90, height: 90)
-        .overlay(Text(note.note).padding(5), alignment: .bottom)
-        .background(note.color.opacity(0.5))
-        .clipShape(RoundedRectangle(cornerRadius: 5))
-        .overlay(
-            RoundedRectangle(cornerRadius: 5)
-                .stroke(Color.black.opacity(0.2))
-        )
-    }
-}
-
-struct NoteModel {
-    let color: Color
-    let text: String
-    let note: String
 }
 
 struct NotesGrid_Previews: PreviewProvider {

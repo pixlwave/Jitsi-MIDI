@@ -1,5 +1,4 @@
-import Foundation
-import Carbon.HIToolbox
+import AppKit
 
 protocol Command {
     func run(keyDown: Bool, for processIdentifier: pid_t)
@@ -31,8 +30,9 @@ struct MomentaryKeyCommand: Command {
 }
 
 
-struct OptionKeyCommand: Command {
+struct ModifiedKeyCommand: Command {
     let key: Int
+    var modifierFlags: CGEventFlags = .maskAlternate
     
     func run(keyDown: Bool, for processIdentifier: pid_t) {
         guard keyDown else { return }
@@ -43,11 +43,41 @@ struct OptionKeyCommand: Command {
         ].compactMap { $0 }
         
         events.forEach {
-            $0.flags.insert(.maskAlternate)
+            $0.flags.insert(modifierFlags)
             $0.postToPid(processIdentifier)
         }
     }
 }
+
+
+struct OpenURLCommand: Command {
+    let defaultsKey: String
+    
+    func run(keyDown: Bool, for processIdentifier: pid_t) {
+        guard
+            keyDown,
+            let url = UserDefaults.standard.url(forKey: defaultsKey)
+        else { return }
+        
+        NSWorkspace.shared.open(url)
+    }
+}
+
+
+struct OpenAppCommand: Command {
+    let bundleID: String
+    
+    func run(keyDown: Bool, for processIdentifier: pid_t) {
+        guard keyDown else { return }
+        
+        let task = Process()
+        task.executableURL = URL(fileURLWithPath: "/usr/bin/open")
+        task.arguments = ["-b", bundleID]
+        try? task.run()
+        task.waitUntilExit()
+    }
+}
+
 
 struct ShellCommand: Command {
     let command: String

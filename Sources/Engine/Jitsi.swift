@@ -1,4 +1,4 @@
-import Quartz
+import AppKit
 import Carbon.HIToolbox
 import Combine
 
@@ -14,25 +14,26 @@ class Jitsi: NSObject, ObservableObject {
     let midi = MIDIManager()
     
     let keymap: [UInt8: Command] = [
-        36: OptionKeyCommand(key: kVK_ANSI_C),      // reaction - clap
+        36: ModifiedKeyCommand(key: kVK_ANSI_C),    // reaction - clap
         37: KeyCommand(key: kVK_ANSI_V),            // toggle video
         38: KeyCommand(key: kVK_ANSI_M),            // toggle mic
         39: MomentaryKeyCommand(key: kVK_Space),    // push to talk
         
-        40: OptionKeyCommand(key: kVK_ANSI_L),      // reaction - laugh
+        40: ModifiedKeyCommand(key: kVK_ANSI_L),    // reaction - laugh
         41: KeyCommand(key: kVK_ANSI_D),            // screen sharing
         42: KeyCommand(key: kVK_ANSI_F),            // toggle thumbnails
         43: KeyCommand(key: kVK_ANSI_W),            // tile view
         
-        44: OptionKeyCommand(key: kVK_ANSI_T),      // reaction - thumbs up
-        45: OptionKeyCommand(key: kVK_ANSI_O),      // reaction - surprised
+        44: ModifiedKeyCommand(key: kVK_ANSI_T),    // reaction - thumbs up
+        45: ModifiedKeyCommand(key: kVK_ANSI_O),    // reaction - surprised
         46: KeyCommand(key: kVK_ANSI_R),            // raise hand
-        47: ShellCommand(command: ""),              // end call ???
+        47: ModifiedKeyCommand(key: kVK_ANSI_Q,     // end call (quit)
+                               modifierFlags: .maskCommand),
         
-        48: ShellCommand(command: ""),              // function 1
-        49: ShellCommand(command: ""),              // function 2
-        50: ShellCommand(command: ""),              // function 3
-        51: ShellCommand(command: "")               // special
+        48: OpenURLCommand(defaultsKey: "f1URL"),   // function 1
+        49: OpenURLCommand(defaultsKey: "f2URL"),   // function 2
+        50: OpenURLCommand(defaultsKey: "f3URL"),   // function 3
+        51: OpenAppCommand(bundleID: "org.jitsi.jitsi-meet") // special
     ]
     
     var tickTimer: AnyCancellable?
@@ -96,10 +97,15 @@ extension Jitsi: MIDIDelegate {
     func midi(note: UInt8, isOn: Bool) {
         DispatchQueue.main.async { if isOn { self.lastMidi = note } }
         
-        guard
-            let processIdentifier = processIdentifier,
-            let command = keymap[note]
-        else { return }
+        guard let command = keymap[note] else { return }
+        
+        #warning("Should process ID be optional?")
+        if command is OpenURLCommand || command is ShellCommand || command is OpenAppCommand {
+            command.run(keyDown: isOn, for: 0)
+            return
+        }
+        
+        guard let processIdentifier = processIdentifier else { return }
         
         command.run(keyDown: isOn, for: processIdentifier)
     }

@@ -38,6 +38,11 @@ class MIDIManager {
         midi.sendEvent(event)
     }
     
+    func keybowContinue() {
+        let event = MIDIEvent(data: [MIDISystemCommand.continue.byte, 0])
+        midi.sendEvent(event)
+    }
+    
     func keybowStop() {
         let event = MIDIEvent(data: [MIDISystemCommand.stop.byte, 0])
         midi.sendEvent(event)

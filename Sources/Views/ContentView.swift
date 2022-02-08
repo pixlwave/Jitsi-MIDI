@@ -2,7 +2,7 @@ import SwiftUI
 import Carbon.HIToolbox
 
 struct ContentView: View {
-    @EnvironmentObject var jitsi: Jitsi
+    @EnvironmentObject var mapper: InputMapper
     
     var body: some View {
         VStack {
@@ -10,7 +10,7 @@ struct ContentView: View {
                 Text("Jitsi Electron:")
                     .font(.title.weight(.semibold))
                 
-                Text(jitsi.processIdentifier != nil ? "Running" : "Not Running")
+                Text(mapper.jitsi.processIdentifier != nil ? "Running" : "Not Running")
                     .font(.title.smallCaps())
                 
                 Spacer()
@@ -22,7 +22,7 @@ struct ContentView: View {
             HStack {
                 HStack {
                     Text("Last MIDI Note:")
-                    Text(jitsi.lastMidi?.description ?? "None")
+                    Text(mapper.lastMidi?.description ?? "None")
                 }
                 .foregroundColor(.secondary)
                 
@@ -30,7 +30,7 @@ struct ContentView: View {
                 Spacer()
                 
                 Button("Reload") {
-                    jitsi.midi.reset()
+                    mapper.midi.reset()
                 }
                 
                 Button("Quit") {

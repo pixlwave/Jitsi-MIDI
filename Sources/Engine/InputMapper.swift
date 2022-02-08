@@ -2,14 +2,14 @@ import AppKit
 import Carbon.HIToolbox
 import Combine
 
-class Jitsi: NSObject, ObservableObject {
-    static var shared: Jitsi = Jitsi(bundleIdentifier: "org.jitsi.jitsi-meet")
+class InputMapper: NSObject, ObservableObject {
+    static var shared: InputMapper = InputMapper()
     
-    let bundleIdentifier: String
-    @Published var processIdentifier: pid_t?
+    @Published var jitsi = ControllableApp(bundleIdentifier: "org.jitsi.jitsi-meet", processIdentifier: nil)
+    @Published var matrix = ControllableApp(bundleIdentifier: "uk.pixlwave.MatrixVOIP", processIdentifier: nil)
     @Published var lastMidi: UInt8?
     
-    var cancellables = [AnyCancellable]()
+    private var cancellables = [AnyCancellable]()
     
     let midi = MIDIManager()
     
@@ -33,17 +33,12 @@ class Jitsi: NSObject, ObservableObject {
         48: OpenURLCommand(defaultsKey: "f1URL"),   // function 1
         49: OpenURLCommand(defaultsKey: "f2URL"),   // function 2
         50: OpenURLCommand(defaultsKey: "f3URL"),   // function 3
-        51: OpenAppCommand(bundleID: "org.jitsi.jitsi-meet") // special
+        51: SpecialKeyCommand()                     // special
     ]
     
     var tickTimer: AnyCancellable?
     
-    private init(bundleIdentifier: String) {
-        self.bundleIdentifier = bundleIdentifier
-        
-        let app = NSRunningApplication.runningApplications(withBundleIdentifier: bundleIdentifier).first
-        processIdentifier = app?.processIdentifier
-        
+    private override init() {
         super.init()
         
         midi.delegate = self
@@ -56,57 +51,73 @@ class Jitsi: NSObject, ObservableObject {
             .sink(receiveValue: didTerminateApplication(notification:))
             .store(in: &cancellables)
         
+        // A timer to refresh the LEDs in case an app launches whilst the keybow is disconnected
         tickTimer = Timer.publish(every: 5, on: .main, in: .common)
             .autoconnect()
             .sink { _ in
-                if self.processIdentifier != nil {
+                if self.jitsi.processIdentifier != nil {
                     self.midi.keybowStart()
+                } else if self.matrix.processIdentifier != nil {
+                    self.midi.keybowContinue()
                 }
             }
     }
     
     func didLaunchApplication(notification: Notification) {
         guard let app = application(from: notification) else { return }
-        processIdentifier = app.processIdentifier
         
-        // light up the keybow's leds
-        midi.keybowStart()
+        if app.bundleIdentifier == jitsi.bundleIdentifier {
+            jitsi.processIdentifier = app.processIdentifier
+            midi.keybowStart()  // light up the keybow's leds
+        } else if app.bundleIdentifier == matrix.bundleIdentifier && jitsi.processIdentifier == nil {
+            matrix.processIdentifier = app.processIdentifier
+            midi.keybowContinue()   // light up the keybow's leds
+        }
     }
     
     func didTerminateApplication(notification: Notification) {
-        guard let _ = application(from: notification) else { return }
-        processIdentifier = nil
+        guard let app = application(from: notification) else { return }
         
-        // turn off the keybow's leds
-        midi.keybowStop()
+        if app.bundleIdentifier == jitsi.bundleIdentifier {
+            jitsi.processIdentifier = nil
+            
+            if matrix.processIdentifier != nil {
+                midi.keybowContinue()   // switch to the matrix layout
+            } else {
+                midi.keybowStop()   // turn off the keybow's leds
+            }
+        } else if app.bundleIdentifier == matrix.bundleIdentifier {
+            matrix.processIdentifier = nil
+            
+            if jitsi.processIdentifier == nil {
+                midi.keybowStop()   // turn off the keybow's leds
+            }
+        }
     }
     
     func application(from notification: Notification) -> NSRunningApplication? {
-        guard
-            let app = notification.userInfo?[NSWorkspace.applicationUserInfoKey] as? NSRunningApplication,
-            app.bundleIdentifier == bundleIdentifier
-        else { return nil }
-        
-        return app
+        notification.userInfo?[NSWorkspace.applicationUserInfoKey] as? NSRunningApplication
     }
 }
 
 
 // MARK: - MidiDelegate
-extension Jitsi: MIDIDelegate {
+extension InputMapper: MIDIDelegate {
     func midi(note: UInt8, isOn: Bool) {
         DispatchQueue.main.async { if isOn { self.lastMidi = note } }
         
         guard let command = keymap[note] else { return }
         
         #warning("Should process ID be optional?")
-        if command is OpenURLCommand || command is ShellCommand || command is OpenAppCommand {
+        if !command.controlsRunningApp {
             command.run(keyDown: isOn, for: 0)
             return
         }
         
-        guard let processIdentifier = processIdentifier else { return }
-        
-        command.run(keyDown: isOn, for: processIdentifier)
+        if let jitsiProcessIdentifier = jitsi.processIdentifier {
+            command.run(keyDown: isOn, for: jitsiProcessIdentifier)
+        } else if let matrixProcessIdentifier = matrix.processIdentifier {
+            command.run(keyDown: isOn, for: matrixProcessIdentifier)
+        }
     }
 }
